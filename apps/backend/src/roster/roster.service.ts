@@ -10,7 +10,7 @@ export class RosterService {
   async getAll(userId?: number) {
     if (userId) {
       const user = await this.em.findOne(User, { id: userId }, { populate: ['followed', 'articles'] });
-      await user.articles.init();
+      await user?.articles.init();
       if (!user) {
         throw new NotFoundException({
           errorCode: 404,
