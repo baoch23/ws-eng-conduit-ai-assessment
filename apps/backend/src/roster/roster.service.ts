@@ -16,7 +16,7 @@ export class RosterService {
           errorMsg: 'User not found.',
         });
       }
-      const following = await user.following.loadItems();
+      const following = await user.followed.loadItems();
       return following.map(f => this.mapUserToResponse(f));
     } else {
       const users = await this.em.find(User, {});
