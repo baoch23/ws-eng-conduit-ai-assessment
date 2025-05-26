@@ -9,7 +9,7 @@ export class RosterService {
 
   async getAll(userId?: number) {
     if (userId) {
-      const user = await this.em.findOne(User, { id: userId });
+      const user = await this.em.findOne(User, { id: userId }, { populate: ['followed', 'articles'] });
       if (!user) {
         throw new NotFoundException({
           errorCode: 404,
@@ -19,7 +19,7 @@ export class RosterService {
       const following = await user.followed.loadItems();
       return following.map(f => this.mapUserToResponse(f));
     } else {
-      const users = await this.em.find(User, {});
+      const users = await this.em.find(User, {}, { populate: ['articles'] });
       return users.map(user => this.mapUserToResponse(user)).sort((a, b) => b.favoritesCount - a.favoritesCount);
     }
   }
