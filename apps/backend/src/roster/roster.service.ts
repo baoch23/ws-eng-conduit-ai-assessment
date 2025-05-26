@@ -19,7 +19,7 @@ export class RosterService {
       const following = await user.followed.init();
       return following.getItems().map(f => this.mapUserToResponse(f));
     } else {
-      const users = await this.em.find(User, {}, { populate: ['articles', 'articles.favorites'] });
+      const users = await this.em.find(User, {}, { populate: ['articles'] });
       return users.map(user => this.mapUserToResponse(user)).sort((a, b) => b.favoritesCount - a.favoritesCount);
     }
   }
