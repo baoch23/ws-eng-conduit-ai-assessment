@@ -12,7 +12,7 @@ import { RosterService } from './roster.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RosterComponent implements OnInit {
-  users$: Observable<User[]>;
+  users$: Observable<User[]> = this.rosterService.getRoster();
 
   constructor(private rosterService: RosterService, private store: Store) {}
 
