@@ -1,0 +1,21 @@
+<div class="roster">
+  <h1>Roster</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Articles Authored</th>
+        <th>Favorites Received</th>
+        <th>First Article Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users$ | async">
+        <td><a [routerLink]="['/profile', user.username]">{{ user.username }}</a></td>
+        <td>{{ user.articlesCount }}</td>
+        <td>{{ user.favoritesCount }}</td>
+        <td>{{ user.firstArticleDate | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

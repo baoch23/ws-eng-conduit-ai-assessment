@@ -50,7 +50,7 @@ export const appConfig: ApplicationConfig = {
       },
       {
         path: 'roster',
-        loadChildren: () => import('@realworld/roster/src/lib/roster.routes').then((m) => m.ROSTER_ROUTES),
+        loadComponent: () => import('./roster/roster.component').then((m) => m.RosterComponent),
       },
     ]),
     provideStore({
