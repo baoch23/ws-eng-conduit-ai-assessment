@@ -9,7 +9,7 @@ export class RosterService {
   constructor(private http: HttpClient) {}
 
   getRoster(userId?: number): Observable<User[]> {
-    const params = userId ? { userId: userId.toString() } : {};
+    const params = userId ? new HttpParams().set('userId', userId.toString()) : new HttpParams();
     return this.http.get<User[]>(`${API_URL}/roster`, { params });
   }
 }
