@@ -1,0 +1,25 @@
+<div class="leaderboard">
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Author</th>
+        <th>Articles</th>
+        <th>Total Favorites</th>
+        <th>First Article Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users$ | async; let i = index">
+        <td><span class="badge">{{ i + 1 }}</span></td>
+        <td><a [routerLink]="['/profile', user.username]">{{ user.username }}</a></td>
+        <td>{{ user.articlesCount }}</td>
+        <td>{{ user.totalFavorites }}</td>
+        <td>{{ user.firstArticleDate | date: 'MMM d, y' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="summary-cards">
+    <!-- Add summary statistics cards here -->
+  </div>
+</div>

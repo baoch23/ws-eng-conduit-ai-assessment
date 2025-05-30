@@ -1,0 +1,42 @@
+.leaderboard {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.badge {
+  background-color: #4caf50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.summary-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .summary-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
