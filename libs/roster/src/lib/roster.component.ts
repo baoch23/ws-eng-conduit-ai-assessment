@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserStats } from '@app/core/api-types';
-import { RosterService } from './roster.service';
+import { RosterService } from 'apps/backend/src/roster/roster.service';
 
 @Component({
   selector: 'realworld-roster',
