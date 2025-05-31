@@ -13,10 +13,18 @@ import { RosterService } from './roster.service';
 })
 export class RosterComponent implements OnInit {
   users$: Observable<UserStats[]>;
+  summaryStats = [
+    { title: 'Total Users', value: 0 },
+    { title: 'Total Favorites', value: 0 },
+  ];
 
   constructor(private rosterService: RosterService) {}
 
   ngOnInit() {
     this.users$ = this.rosterService.getUserStats();
+    this.users$.subscribe(users => {
+      this.summaryStats[0].value = users.length;
+      this.summaryStats[1].value = users.reduce((acc, user) => acc + user.totalFavorites, 0);
+    });
   }
 }
