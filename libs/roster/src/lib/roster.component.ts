@@ -6,7 +6,7 @@ import { RosterService } from './roster.service';
 @Component({
   selector: 'realworld-roster',
   templateUrl: './roster.component.html',
-  styleUrls: [],
+  styleUrls: ['./roster.component.css'],
   providers: [],
   imports: [],
   standalone: true,

@@ -1,5 +1,5 @@
 <div class="table-responsive">
-  <table class="table">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Rank</th>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users$ | async; let i = index">
-        <td><span class="badge badge-primary">{{ i + 1 }}</span></td>
+        <td><span class="badge badge-success">{{ i + 1 }}</span></td>
         <td><a [routerLink]="['/profile', user.username]">{{ user.username }}</a></td>
         <td>{{ user.articleCount }}</td>
         <td>{{ user.totalFavorites }}</td>
