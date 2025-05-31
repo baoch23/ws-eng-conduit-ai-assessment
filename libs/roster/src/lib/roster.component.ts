@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserStats } from '@app/core/api-types/src/lib/user-stats';
+import { User } from 'apps/backend/src/user/user.entity';
 import { RosterService } from 'apps/backend/src/roster/roster.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { RosterService } from 'apps/backend/src/roster/roster.service';
   standalone: true,
 })
 export class RosterComponent implements OnInit {
-  users$: Observable<UserStats[]>;
+  users$: Observable<User[]>;
   summaryStats = [
     { title: 'Total Users', value: 0 },
     { title: 'Total Favorites', value: 0 },
