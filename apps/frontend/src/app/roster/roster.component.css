@@ -17,3 +17,44 @@
   background-color: #f4f4f4;
   text-align: left;
 }
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.badge-success {
+  background-color: #28a745;
+  color: white;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.summary-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card {
+  flex: 1 1 200px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1.5em;
+  font-weight: bold;
+}
