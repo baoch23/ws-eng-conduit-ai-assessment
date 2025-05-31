@@ -56,7 +56,7 @@ export class User {
 
   @OneToMany(() => Article, (article) => article.author, { hidden: true })
   articles = new Collection<Article>(this);
-  totalFavorites: number;
+  totalFavorites: number = 0;
 
   constructor(username: string, email: string, password: string) {
     this.username = username;
