@@ -1,1 +1,28 @@
 <p>TODO</p>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Total Favorites</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users$ | async; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td><a [routerLink]="['/profile', user.username]">{{ user.username }}</a></td>
+        <td>{{ user.totalFavorites }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="summary-cards">
+  <div class="card" *ngFor="let stat of summaryStats">
+    <div class="card-body">
+      <h5 class="card-title">{{ stat.title }}</h5>
+      <p class="card-text">{{ stat.value }}</p>
+    </div>
+  </div>
+</div>
