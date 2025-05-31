@@ -1,4 +1,5 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { from, Observable } from 'rxjs';
 import { EntityRepository, MikroORM } from '@mikro-orm/core';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { User } from '../user/user.entity';
@@ -17,9 +18,8 @@ export class RosterService {
     return this.buildRoster(users);
   }
 
-  async getUserStats(): Promise<User[]> {
-    const users = await this.userRepository.findAll();
-    return this.buildRoster(users);
+  getUserStats(): Observable<User[]> {
+    return from(this.userRepository.findAll().then(users => this.buildRoster(users)));
   }
 
   private async getUsersFollowedBy(userId: number): Promise<User[]> {
