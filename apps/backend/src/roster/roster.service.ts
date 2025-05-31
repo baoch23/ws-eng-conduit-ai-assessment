@@ -33,15 +33,15 @@ export class RosterService {
     const articles = await this.orm.em.find(Article, { author: user });
     const articlesCount = articles.length;
     const favoritesCount = articles.reduce((sum, article) => sum + article.favoritesCount, 0);
-    const firstArticleAt = articlesCount > 0 ? articles[0].createdAt.toISOString() : '';
+    const firstArticleDate = articlesCount > 0 ? articles[0].createdAt.toISOString() : '';
 
     return {
       username: user.username,
       userId: user.id,
       email: user.email,
-      articlesCount,
-      favoritesCount,
-      firstArticleAt,
+      articleCount: articlesCount,
+      totalFavorites: favoritesCount,
+      firstArticleDate,
     };
   }
 }
