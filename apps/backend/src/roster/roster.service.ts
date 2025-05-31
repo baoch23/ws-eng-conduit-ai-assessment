@@ -17,6 +17,11 @@ export class RosterService {
     return this.buildRoster(users);
   }
 
+  async getUserStats(): Promise<any[]> {
+    const users = await this.userRepository.findAll();
+    return this.buildRoster(users);
+  }
+
   private async getUsersFollowedBy(userId: number): Promise<User[]> {
     const user = await this.userRepository.findOne({ id: userId });
     if (!user) {
