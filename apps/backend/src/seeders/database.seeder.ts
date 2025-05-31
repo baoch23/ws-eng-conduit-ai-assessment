@@ -32,6 +32,7 @@ export class DatabaseSeeder extends Seeder {
         favoritesCount: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
+        totalFavorites: 0,
       }),
       em.create(Article, {
         author: authors.zolly,
