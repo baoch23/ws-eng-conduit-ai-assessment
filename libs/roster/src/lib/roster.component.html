@@ -3,15 +3,19 @@
     <thead>
       <tr>
         <th>Rank</th>
-        <th>Username</th>
+        <th>Author</th>
+        <th>Articles</th>
         <th>Total Favorites</th>
+        <th>First Article Day</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users$ | async; let i = index">
-        <td>{{ i + 1 }}</td>
+        <td><span class="badge badge-primary">{{ i + 1 }}</span></td>
         <td><a [routerLink]="['/profile', user.username]">{{ user.username }}</a></td>
+        <td>{{ user.articleCount }}</td>
         <td>{{ user.totalFavorites }}</td>
+        <td>{{ user.firstArticleDate | date }}</td>
       </tr>
     </tbody>
   </table>
