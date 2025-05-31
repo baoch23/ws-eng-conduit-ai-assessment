@@ -3,4 +3,5 @@ export interface User {
   articlesCount: number;
   totalFavorites: number;
   firstArticleDate: string;
+  token?: string;
 }

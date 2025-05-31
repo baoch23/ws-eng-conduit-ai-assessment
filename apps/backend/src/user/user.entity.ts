@@ -37,6 +37,9 @@ export class User {
   @Property({ hidden: true })
   password: string;
 
+  @Property({ nullable: true })
+  token?: string;
+
   @ManyToMany({ entity: () => Article, hidden: true })
   favorites = new Collection<Article>(this);
 
