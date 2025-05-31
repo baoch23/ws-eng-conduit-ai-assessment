@@ -20,7 +20,18 @@ import { API_URL } from 'apps/frontend/src/app/roster/roster.service';
   ]
 })
 export class RosterComponent implements OnInit {
-  users$: Observable<User[]> = this.rosterService.getRoster();
+  users$: Observable<User[]>;
+
+  constructor(private rosterService: RosterService, private store: Store) { }
+
+  ngOnInit() {
+    // Mock data for testing
+    const mockUsers: User[] = [
+      { username: 'JohnDoe', articlesCount: 5, totalFavorites: 10, firstArticleDate: new Date().toISOString() },
+      { username: 'JaneDoe', articlesCount: 3, totalFavorites: 5, firstArticleDate: new Date().toISOString() },
+    ];
+    this.users$ = of(mockUsers);
+  }
 
   constructor(private rosterService: RosterService, private store: Store) { }
 
