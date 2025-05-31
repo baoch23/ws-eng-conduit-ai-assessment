@@ -20,9 +20,9 @@ import { API_URL } from 'apps/frontend/src/app/roster/roster.service';
   ]
 })
 export class RosterComponent implements OnInit {
-  users$: Observable<User[]> = this.rosterService.getRoster();
+  users$: Observable<User[]>;
 
-  constructor(private rosterService: RosterService, private store: Store) { }
+  constructor(private rosterService: RosterService) { }
 
   ngOnInit() {
     this.users$ = this.rosterService.getRoster();
