@@ -17,7 +17,7 @@ export class RosterService {
     return this.buildRoster(users);
   }
 
-  async getUserStats(): Promise<any[]> {
+  async getUserStats(): Promise<User[]> {
     const users = await this.userRepository.findAll();
     return this.buildRoster(users);
   }
