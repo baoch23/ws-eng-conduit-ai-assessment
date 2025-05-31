@@ -6,14 +6,8 @@ import { API_URL } from '@realworld/core/http-client';
   providers: [
     { provide: API_URL, useValue: 'https://your-api-url.com' }
   ],
-  imports: [HttpClientModule],
-import { CommonModule } from '@angular/common';
-
-import { RosterComponent } from './roster.component';
-
-@NgModule({
+  imports: [HttpClientModule,CommonModule],
   declarations: [RosterComponent],
-  imports: [CommonModule],
   exports: [RosterComponent],
 })
 export class RosterModule {}
