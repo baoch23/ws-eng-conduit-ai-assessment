@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserStats } from '@app/core/api-types';
+import { UserStats } from '@app/core/api-types/src/lib/user-stats';
 import { RosterService } from 'apps/backend/src/roster/roster.service';
 
 @Component({
