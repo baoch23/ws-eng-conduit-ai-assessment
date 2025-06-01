@@ -12,7 +12,7 @@ import { RosterService } from 'apps/backend/src/roster/roster.service';
   standalone: true,
 })
 export class RosterComponent implements OnInit {
-  users$: Observable<User[]>;
+  users$!: Observable<User[]>;
   summaryStats = [
     { title: 'Total Users', value: 0 },
     { title: 'Total Favorites', value: 0 },
@@ -20,11 +20,15 @@ export class RosterComponent implements OnInit {
 
   constructor(private rosterService: RosterService) {}
 
-  ngOnInit() {
-    this.users$ = this.rosterService.getUserStats();
-    this.users$.subscribe(users => {
-      this.summaryStats[0].value = users.length;
-      this.summaryStats[1].value = users.reduce((acc, user) => acc + user.totalFavorites, 0);
-    });
+  async ngOnInit() {
+    try {
+        this.users$ = await this.rosterService.getUserStats();
+        this.users$.subscribe(users => {
+          this.summaryStats[0].value = users.length;
+          this.summaryStats[1].value = users.reduce((acc, user) => acc + user.totalFavorites, 0);
+        });
+    } catch (error) {
+      console.log("error: ", error);
+    }
   }
 }

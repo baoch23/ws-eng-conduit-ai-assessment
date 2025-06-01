@@ -20,8 +20,9 @@ export const authInitialState: AuthState = {
     email: '',
     token: '',
     username: '',
-    bio: '',
-    image: '',
+    articlesCount: 0,
+    totalFavorites: 0,
+    firstArticleDate: ''
   },
 };
 

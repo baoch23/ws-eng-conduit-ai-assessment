@@ -4,17 +4,7 @@ export interface User {
   username: string;
   bio?: string | undefined;
   image?: string | undefined;
-  articlesCount: number;
-  totalFavorites: number;
-  firstArticleDate: string; // or Date, depending on your type definition
-}
-export interface User {
-  email: string;
-  token: string;
-  username: string;
-  bio?: string | undefined;
-  image?: string | undefined;
-  articlesCount: number;
-  totalFavorites: number;
-  firstArticleDate: string; // or Date, depending on your type definition
+  articlesCount?: number;
+  totalFavorites?: number;
+  firstArticleDate?: string; // or Date, depending on your type definition
 }

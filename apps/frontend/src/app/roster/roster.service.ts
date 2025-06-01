@@ -16,14 +16,3 @@ export class RosterService {
     return this.http.get<User[]>(`${this.apiUrl}/roster`, { params });
   }
 }
-
-@Injectable({ providedIn: 'root' })
-export class RosterService {
-  constructor(private http: HttpClient) {}
-
-  getRoster(userId?: number): Observable<User[]> {
-    const params = userId ? new HttpParams().set('userId', userId.toString()) : new HttpParams();
-    console.log("API_URL: ", API_URL);
-    return this.http.get<User[]>(`${API_URL}/roster`, { params });
-  }
-}

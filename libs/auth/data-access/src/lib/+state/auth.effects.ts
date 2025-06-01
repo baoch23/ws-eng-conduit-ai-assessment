@@ -57,7 +57,9 @@ export const loginOrRegisterSuccess$ = createEffect(
     return actions$.pipe(
       ofType(authActions.loginSuccess, authActions.registerSuccess),
       tap((action) => {
-        localStorageJwtService.setItem(action.user.token);
+        if (action.user.token) {
+          localStorageJwtService.setItem(action.user.token);
+        }
         router.navigateByUrl('/');
       }),
     );

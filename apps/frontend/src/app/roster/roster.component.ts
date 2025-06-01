@@ -20,7 +20,7 @@ import { API_URL } from 'apps/frontend/src/app/roster/roster.service';
   ]
 })
 export class RosterComponent implements OnInit {
-  users$: Observable<User[]>;
+  users$!: Observable<User[]>;
 
   constructor(private rosterService: RosterService) { }
 

@@ -1,5 +1,4 @@
 import { ApiService } from '@realworld/core/http-client';
-import { UserResponse } from '@realworld/core/api-types';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginUser, LoginUserRequest, NewUserRequest, NewUser, UserResponse } from '@realworld/core/api-types';
