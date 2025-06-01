@@ -3,7 +3,13 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const appOptions = { cors: true };
+  const appOptions = {
+    cors: {
+      origin: 'http://your-frontend-site.com', // Replace with your front-end site URL
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true,
+    },
+  };
   const app = await NestFactory.create(AppModule, appOptions);
   app.setGlobalPrefix('api');
 
