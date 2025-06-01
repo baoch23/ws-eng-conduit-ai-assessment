@@ -59,7 +59,14 @@ export class User {
 
   @OneToMany(() => Article, (article) => article.author, { hidden: true })
   articles = new Collection<Article>(this);
+  @Property()
+  articlesCount: number = 0;
+
+  @Property()
   totalFavorites: number = 0;
+
+  @Property()
+  firstArticleDate: string = new Date().toISOString();
 
   constructor(username: string, email: string, password: string) {
     this.username = username;
