@@ -5,7 +5,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const appOptions = {
     cors: {
-      origin: 'https://studious-journey-wr4rg656ggqvc66q-4200.app.github.dev/', // Replace with your front-end site URL
+      origin: '*', // Allow all origins for testing purposes
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       credentials: true,
     },
